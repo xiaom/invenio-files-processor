@@ -22,7 +22,7 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-"""pdf_grobid tests."""
+"""pdfmetadata tests."""
 
 from __future__ import absolute_import, print_function
 
@@ -33,7 +33,7 @@ from io import open
 import pytest
 from pkg_resources import EntryPoint
 
-from invenio_files_processor.processors import pdf_grobid
+from invenio_files_processor.processors import pdfmetadata
 
 
 class MockEntryPoint(EntryPoint):
@@ -56,23 +56,27 @@ def test_permission(mocker, client, users, pdf_obj):
     mocker.patch('pkg_resources.iter_entry_points',
                  return_value=[
                      MockEntryPoint(
-                         'pdf_grobid',
-                         'invenio_files_processor.processors.pdf_grobid')
+                         'pdfmetadata',
+                         'invenio_files_processor.processors.pdfmetadata')
                  ],
                  auto_spec=True)
 
-    mocker.patch('invenio_files_processor.processors.pdf_grobid.process',
+    mocker.patch('invenio_files_processor.processors.pdfmetadata.process',
                  return_value={},
                  auto_spec=True)
 
     login_user(client, users['read'])
     resp = client.post(
-        '/filesprocessor/pdf_grobid/{}'.format(pdf_obj.version_id))
+        '/filesprocessor/pdfmetadata/{}'.format(pdf_obj.version_id),
+        data={
+            'grobid': True
+        }
+    )
     assert resp.status_code == 200
 
     login_user(client, users['non-read'])
     resp = client.post(
-        '/filesprocessor/pdf_grobid/{}'.format(pdf_obj.version_id))
+        '/filesprocessor/pdfmetadata/{}'.format(pdf_obj.version_id))
     # see invenio_files_rest.views.check_permission for the description of
     # error codes (401, 403 and 404)
     assert resp.status_code == 404
@@ -80,17 +84,17 @@ def test_permission(mocker, client, users, pdf_obj):
 
 def test_can_process(pdf_obj, fits_obj):
     """Test the can_process function."""
-    assert pdf_grobid.can_process(pdf_obj)
-    assert not pdf_grobid.can_process(fits_obj)
+    assert pdfmetadata.can_process(pdf_obj)
+    assert not pdfmetadata.can_process(fits_obj)
 
 
 def test_process(mocker, pdf_obj, tei_xml):
     """Test the processing function."""
     mocker.patch(
-        'invenio_files_processor.processors.pdf_grobid.process_pdf_stream',
+        'invenio_files_processor.processors.pdfmetadata.process_pdf_stream',
         return_value=tei_xml, auto_spec=True)
 
-    metadata = pdf_grobid.process(pdf_obj)
+    metadata = pdfmetadata.process(pdf_obj, {'grobid': True})
     assert metadata['title'] == "The Need to Fairly Confront Spin-1 for " \
         "the New Higgs-like Particle"
     assert metadata['description'] == (

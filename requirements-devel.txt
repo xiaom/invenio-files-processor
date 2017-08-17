@@ -27,3 +27,6 @@
 #
 #     -e git+git://github.com/mitsuhiko/werkzeug.git#egg=Werkzeug
 #     -e git+git://github.com/mitsuhiko/jinja2.git#egg=Jinja2
+
+# textract 1.6.1 on PyPI use chardet 2.3.0 and incompatible with Zenodo
+-e git+https://github.com/deanmalmgren/textract#egg=textract

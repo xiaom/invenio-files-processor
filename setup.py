@@ -98,7 +98,7 @@ setup(
             'messages = invenio_files_processor',
         ],
         'invenio_files_processor.processors': [
-            'pdf_grobid = invenio_files_processor.processors.pdf_grobid'
+            'pdfmetadata = invenio_files_processor.processors.pdfmetadata'
         ]
         # 'invenio_base.api_apps': [],
         # 'invenio_base.api_blueprints': [],

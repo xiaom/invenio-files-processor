@@ -26,7 +26,7 @@
 
 from __future__ import absolute_import, print_function
 
-from flask import Blueprint, abort, current_app, jsonify
+from flask import Blueprint, abort, current_app, jsonify, request
 from invenio_files_rest.models import ObjectVersion
 from invenio_files_rest.views import ObjectResource
 
@@ -52,7 +52,7 @@ def extract_pdf_metadata(processor_name=None, version_id=None):
 
     if processor.can_process(object_version):
         try:
-            metadata = processor.process(object_version)
+            metadata = processor.process(object_version, request.get_json())
             return jsonify(metadata)
         except Exception:
             current_app.logger.warning(
