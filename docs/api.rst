@@ -33,3 +33,9 @@ Views
 
 .. automodule:: invenio_files_processor.views
    :members:
+
+Processors
+----------
+
+.. automodule:: invenio_files_processor.processors.pdfmetadata
+   :members:

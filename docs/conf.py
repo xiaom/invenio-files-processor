@@ -138,7 +138,7 @@ todo_include_todos = False
 html_theme = 'alabaster'
 
 html_theme_options = {
-    'description': 'Invenio module that adds more fun to the platform.',
+    'description': 'Invenio-Files-Processor is a module for processing files.',
     'github_user': 'inveniosoftware',
     'github_repo': 'invenio-files-processor',
     'github_button': False,
@@ -256,25 +256,25 @@ htmlhelp_basename = 'invenio-files-processor_namedoc'
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+    # The paper size ('letterpaper' or 'a4paper').
+    #'papersize': 'letterpaper',
 
-# The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+    # The font size ('10pt', '11pt' or '12pt').
+    #'pointsize': '10pt',
 
-# Additional stuff for the LaTeX preamble.
-#'preamble': '',
+    # Additional stuff for the LaTeX preamble.
+    #'preamble': '',
 
-# Latex figure (float) alignment
-#'figure_align': 'htbp',
+    # Latex figure (float) alignment
+    #'figure_align': 'htbp',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'invenio-files-processor.tex', u'invenio-files-processor Documentation',
-   u'CERN', 'manual'),
+    (master_doc, 'invenio-files-processor.tex', u'invenio-files-processor Documentation',
+     u'CERN', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -317,9 +317,10 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'invenio-files-processor', u'Invenio-Files-Processor Documentation',
-   author, 'invenio-files-processor', 'Invenio module that adds more fun to the platform.',
-   'Miscellaneous'),
+    (master_doc, 'invenio-files-processor', u'Invenio-Files-Processor Documentation',
+     author, 'invenio-files-processor',
+     u'Invenio-Files-Processor is a module for processing files.',
+     'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.
@@ -338,8 +339,8 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     'python': ('https://docs.python.org/', None),
-    # TODO: Configure external documentation references, eg:
-    # 'Flask-Admin': ('https://flask-admin.readthedocs.io/en/latest/', None),
+    'Invenio-Files-REST': ('https://invenio-files-rest.readthedocs.io/en/latest/', None)
+    #'Invenio-Grobid': ('https://github.com/inspirehep/invenio-grobid/tree/master/docs', None)
 }
 
 # Autodoc configuraton.

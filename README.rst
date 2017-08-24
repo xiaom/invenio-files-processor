@@ -40,11 +40,9 @@
 .. image:: https://img.shields.io/github/license/inveniosoftware/invenio-files-processor.svg
         :target: https://github.com/inveniosoftware/invenio-files-processor/blob/master/LICENSE
 
-Invenio module that adds more fun to the platform.
+Invenio-Files-Processor is a module for processing files.
 
 *This is an experimental developer preview release.*
-
-TODO: Please provide feature overview of module
 
 Further documentation is available on
 https://invenio-files-processor.readthedocs.io/

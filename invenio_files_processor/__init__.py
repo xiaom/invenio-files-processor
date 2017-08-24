@@ -22,7 +22,7 @@
 # waive the privileges and immunities granted to it by virtue of its status
 # as an Intergovernmental Organization or submit itself to any jurisdiction.
 
-"""Invenio module that adds more fun to the platform."""
+"""Invenio-Files-Processor module is a module for processing files."""
 
 from __future__ import absolute_import, print_function
 

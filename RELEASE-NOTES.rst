@@ -7,7 +7,7 @@ Invenio-Files-Processor v0.1.0 was released on TBD, 2017.
 About
 -----
 
-Invenio module that adds more fun to the platform.
+Invenio-Files-Processor module is a module for processing files.
 
 *This is an experimental developer preview release.*
 

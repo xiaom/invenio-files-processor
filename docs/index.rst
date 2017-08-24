@@ -36,7 +36,6 @@ Invenio-Files-Processor.
    installation
    configuration
    usage
-   examplesapp
 
 
 API Reference
