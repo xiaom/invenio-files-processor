@@ -63,7 +63,9 @@ setup_requires = [
 install_requires = [
     'invenio-files-rest>=1.0.0a17',
     'invenio-access>=1.0.0a12',
-    'invenio-grobid>=0.2.0'
+    'invenio-grobid>=0.2.0',
+    # NOTE: update the version when 1.6.2 is released.
+    'textract>=1.6.1'
 ]
 
 packages = find_packages()
@@ -108,6 +110,9 @@ setup(
     install_requires=install_requires,
     setup_requires=setup_requires,
     tests_require=tests_require,
+    dependency_links=[
+        'git+https://github.com/deanmalmgren/textract#egg=textract'
+    ],
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
