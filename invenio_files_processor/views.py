@@ -42,7 +42,7 @@ blueprint = Blueprint(
 
 
 @blueprint.route("/<processor_name>/<version_id>", methods=['POST'])
-def extract_pdf_metadata(processor_name=None, version_id=None):
+def extract_metadata(processor_name=None, version_id=None):
     """Main file processing endpoint."""
     processor = current_processor.get_processor(processor_name)
     object_version = ObjectVersion.query.filter_by(version_id=version_id).one()
