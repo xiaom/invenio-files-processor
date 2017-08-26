@@ -110,9 +110,6 @@ setup(
     install_requires=install_requires,
     setup_requires=setup_requires,
     tests_require=tests_require,
-    dependency_links=[
-        'git+https://github.com/deanmalmgren/textract#egg=textract'
-    ],
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',

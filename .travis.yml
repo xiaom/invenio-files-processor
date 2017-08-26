@@ -25,7 +25,7 @@
 notifications:
   email: false
 
-sudo: false
+sudo: required
 
 language: python
 
@@ -49,6 +49,8 @@ python:
   - "3.5"
 
 before_install:
+  - "sudo apt-get update -qq"
+  - "sudo apt-get install -qq python-dev python-pip build-essential swig git libpulse-dev"
   - "nvm install 6; nvm use 6"
   - "travis_retry pip install --upgrade pip setuptools py"
   - "travis_retry pip install twine wheel coveralls requirements-builder"
